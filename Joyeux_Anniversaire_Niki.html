@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Feliz cumpleanos Nikinder!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+body {
+    background: #cbbfa7 url("bmw_e30.jpg") center/cover fixed no-repeat;
+    font-family: "Inter", sans-serif;
+    color: #222;
+    overflow-x: hidden;
+}
+
+
+body.rave-mode {
+    animation: raveFlash 0.28s infinite;
+}
+
+@keyframes raveFlash {
+    0%   { filter: brightness(1) hue-rotate(0deg); }
+    25%  { filter: brightness(1.4) hue-rotate(25deg); }
+    50%  { filter: brightness(0.9) hue-rotate(-20deg); }
+    75%  { filter: brightness(1.6) hue-rotate(60deg); }
+    100% { filter: brightness(1) hue-rotate(0deg); }
+}
+
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 32px 0 40px 0;
+    background: rgba(247,243,234,0.9);
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+    display:none;
+}
+
+
+.page::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 80px;
+    width: 14px;
+    height: 100%;
+    background:
+        radial-gradient(circle at 50% 8px, #111 0, #111 2px, transparent 2px) repeat-y;
+    background-size: 14px 48px;
+    opacity: 0.9;
+}
+
+
+.inner {
+    margin-left: 120px;
+    padding: 20px 40px 40px 40px;
+}
+
+
+.header-row {
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+}
+
+.tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tab {
+    border: none;
+    background: #f0e6d3;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transform: rotate(-2deg);
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.tab.active {
+    background: #ffe7a3;
+    transform: rotate(0deg) translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+
+.title {
+    font-family: "Caveat", cursive;
+    font-size: 2.7rem;
+    margin-bottom: 6px;
+    display: inline-block;
+    background: #fdf7e5;
+    border-radius: 6px;
+    padding: 14px 22px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    transform: rotate(-2deg);
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+    max-width: 640px;
+}
+
+
+.sticker-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+}
+
+.sticker {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f0e6d3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    font-family: "Caveat", cursive;
+}
+
+
+.page-content {
+    display: none;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.page-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    animation: pageFlip 0.4s ease;
+}
+
+
+@keyframes pageFlip {
+    0% { transform: rotateY(-8deg); opacity:0; }
+    100% { transform: rotateY(0deg); opacity:1; }
+}
+
+
+@keyframes floatNote {
+    0%   { transform: translateY(0px) rotate(-2deg); }
+    50%  { transform: translateY(-3px) rotate(-3deg); }
+    100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+@keyframes floatPhoto {
+    0%   { transform: translateY(0px) rotate(-2deg); }
+    50%  { transform: translateY(-2px) rotate(-1deg); }
+    100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+
+@keyframes popIn {
+    0% { opacity:0; transform: scale(0.96) translateY(10px); }
+    100% { opacity:1; transform: scale(1) translateY(0); }
+}
+
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.note {
+    width: 280px;
+    min-height: 170px;
+    padding: 16px 14px;
+    font-family: "Caveat", cursive;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+    position: relative;
+    animation: floatNote 6s ease-in-out infinite;
+}
+
+
+.note.yellow { background: #fff7a8; transform: rotate(-2deg); }
+.note.blue   { background: #cde7ff; transform: rotate(2deg); }
+.note.green  { background: #d6ffd1; transform: rotate(-1deg); }
+.note.pink   { background: #ffd6f2; transform: rotate(1.5deg); }
+.note.orange { background: #ffe2b8; transform: rotate(-1.3deg); }
+
+
+.note::before {
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:40px;
+    width:80px;
+    height:26px;
+    background:rgba(255,255,255,0.7);
+    border-radius:3px;
+    transform:rotate(-6deg);
+    box-shadow:0 2px 6px rgba(0,0,0,0.3);
+}
+
+.note-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+}
+
+
+.photos-title {
+    font-family: "Caveat", cursive;
+    font-size: 2.1rem;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+.photos-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+    max-width: 600px;
+}
+
+.photo-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.photo {
+    width: 260px;
+    background: #ffffff;
+    padding: 10px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    position: relative;
+    animation: floatPhoto 7s ease-in-out infinite;
+    cursor:pointer;
+}
+
+.photo:nth-child(2n)   { animation-delay: 0.8s; }
+.photo:nth-child(3n)   { animation-delay: 1.3s; }
+
+.photo img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.photo::before {
+    content:"";
+    position:absolute;
+    top:-14px;
+    left:18px;
+    width:55px;
+    height:22px;
+    background:rgba(255,255,210,0.9);
+    border-radius:4px;
+    box-shadow:0 3px 6px rgba(0,0,0,0.3);
+    transform:rotate(-8deg);
+}
+
+
+.photo::after {
+    content:"";
+    position:absolute;
+    top:-16px;
+    right:22px;
+    width:55px;
+    height:22px;
+    background:rgba(255,255,210,0.9);
+    border-radius:4px;
+    box-shadow:0 3px 6px rgba(0,0,0,0.3);
+    transform:rotate(6deg);
+}
+
+.photo-label {
+    font-family:"Caveat", cursive;
+    font-size:1.1rem;
+    margin-top:8px;
+}
+
+
+#polaroid-modal {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:20;
+}
+
+#polaroid-modal .modal-inner {
+    background:#fdf7e5;
+    padding:20px;
+    border-radius:10px;
+    max-width:90%;
+    box-shadow:0 12px 30px rgba(0,0,0,0.5);
+    text-align:center;
+    transform:scale(0.9);
+    animation: popIn 0.3s ease forwards;
+}
+
+#polaroid-modal img {
+    max-width: 320px;
+    width:100%;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+#polaroid-modal .back-text {
+    font-family:"Caveat",cursive;
+    font-size:1.4rem;
+}
+
+
+.playlist-block {
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.playlist-title {
+    font-family:"Caveat", cursive;
+    font-size: 1.7rem;
+    margin-bottom: 6px;
+}
+
+
+.bb-player {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Caveat", cursive;
+    font-size: 1rem;
+}
+
+#bb-play {
+    border: none;
+    border-radius: 999px;
+    background: #ffe7a3;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: "Caveat", cursive;
+    font-size: 1.05rem;
+}
+
+#bb-volume {
+    width: 120px;
+}
+
+
+.timeline {
+    margin-top: 20px;
+    border-left: 2px solid #b48b6c;
+    padding-left: 18px;
+}
+
+.timeline-item {
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content:"";
+    position:absolute;
+    left:-11px;
+    top:4px;
+    width:10px;
+    height:10px;
+    background:#b48b6c;
+    border-radius:50%;
+    box-shadow:0 0 0 3px #f7f3ea;
+}
+
+.timeline-date {
+    font-size: 0.8rem;
+    color:#777;
+}
+
+.timeline-text {
+    font-family:"Caveat", cursive;
+    font-size:1.1rem;
+}
+
+
+.footer {
+    margin-top: 32px;
+    text-align: center;
+    font-family: "Caveat", cursive;
+    font-size: 1.6rem;
+}
+
+
+
+.sticker-doodle {
+    position: absolute;
+}
+
+
+.sticker-heart {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ff9aa9;
+    clip-path: polygon(50% 10%, 61% 0, 75% 5%, 85% 20%, 85% 35%, 75% 50%, 50% 80%, 25% 50%, 15% 35%, 15% 20%, 25% 5%, 39% 0);
+    transform: rotate(-12deg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    opacity: 0.9;
+}
+
+
+.sticker-heart::after {
+    content:"";
+    position: absolute;
+    top: -26px;
+    left: 10px;
+    width: 40px;
+    height: 18px;
+    background: rgba(255,255,210,0.85);
+    border-radius: 3px;
+    transform: rotate(-6deg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+
+.sticker-note {
+    position: absolute;
+    width: 110px;
+    height: 70px;
+    background: #fffdf4;
+    padding: 6px;
+    font-family: "Caveat", cursive;
+    font-size: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    clip-path: polygon(0 0,100% 0,100% 85%, 80% 100%, 20% 100%,0 85%);
+    opacity: 0.95;
+}
+
+.sticker-note::after {
+    content:"";
+    position: absolute;
+    top: -18px;
+    left: 22px;
+    width: 60%;
+    height: 18px;
+    background: rgba(255,255,210,0.8);
+    border-radius: 3px;
+    transform: rotate(-4deg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+
+.sticker-doodle.star {
+    font-size: 2.3rem;
+    color: #ffcc67;
+    transform: rotate(8deg);
+    text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+
+.sticker-doodle.arrow {
+    font-size: 2.8rem;
+    color: #7f92ff;
+    transform: rotate(-12deg);
+    text-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+
+.sticker-vinyl {
+    position:absolute;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background: radial-gradient(circle, #444 0, #111 45%, #000 60%, #222 100%);
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.sticker-vinyl::before {
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#ff5e9c;
+    transform:translate(-50%,-50%);
+}
+
+
+.sticker-plane {
+    position:absolute;
+    font-size:2rem;
+    transform:rotate(12deg);
+}
+
+
+.sticker-tattoo {
+    position:absolute;
+    font-size:2.2rem;
+    transform:rotate(-18deg);
+}
+
+
+.sticker-grenouille {
+    position:absolute;
+    bottom: 140px;
+    right: 40px;
+    width: 80px;
+    height: auto;
+    transform: rotate(-4deg);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+
+.e30-real {
+    position: fixed;
+    bottom: 10px;
+    left: -200px;
+    animation: e30Drive 10s linear infinite;
+    z-index: 5;
+}
+
+.e30-real img {
+    height: 80px;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+@keyframes e30Drive {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(120vw); }
+}
+
+
+#techno-visual {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 80px;
+    background: rgba(5,0,20,0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    display: none;
+    z-index: 70;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    display: none;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+#techno-visual .bar {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg,#ff5e9c,#ffcc67);
+    animation: equalize 0.45s infinite ease-in-out;
+    transform-origin: bottom;
+}
+
+#techno-visual .bar:nth-child(2) { animation-delay: 0.08s; }
+#techno-visual .bar:nth-child(3) { animation-delay: 0.16s; }
+#techno-visual .bar:nth-child(4) { animation-delay: 0.24s; }
+#techno-visual .bar:nth-child(5) { animation-delay: 0.32s; }
+
+@keyframes equalize {
+    0%   { transform: scaleY(0.3); }
+    25%  { transform: scaleY(0.9); }
+    50%  { transform: scaleY(0.5); }
+    75%  { transform: scaleY(1); }
+    100% { transform: scaleY(0.4); }
+}
+
+
+.surprise-btn {
+    display:inline-block;
+    padding:14px 20px;
+    background:#ff9aa9;
+    color:#222;
+    font-family:'Caveat',cursive;
+    font-size:1.6rem;
+    border-radius:10px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+    transform:rotate(-2deg);
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    animation: pulseBtn 1.5s infinite;
+}
+
+@keyframes pulseBtn {
+    0% { transform: rotate(-2deg) scale(1); }
+    50% { transform: rotate(-2deg) scale(1.05); }
+    100% { transform: rotate(-2deg) scale(1); }
+}
+
+
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 14px;
+    opacity: 0;
+    pointer-events: none;
+    z-index:50;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translate3d(0,0,0) rotateZ(0deg);
+        opacity:1;
+    }
+    100% {
+        transform: translate3d(0,110vh,0) rotateZ(360deg);
+        opacity:0;
+    }
+}
+
+
+.chat-postit {
+    width: 420px;
+    padding: 12px 12px 16px;
+    background:#fffdd0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    border-radius:8px;
+    position:relative;
+    transform:rotate(2deg);
+    margin-bottom:20px;
+}
+
+.chat-postit::before {
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:40px;
+    width:60px;
+    height:20px;
+    background:rgba(255,255,255,0.8);
+    border-radius:3px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+
+.chat-title {
+    font-family:"Caveat",cursive;
+    font-size:1.3rem;
+    margin-bottom:4px;
+}
+
+.chat-preview {
+    font-family:"Caveat",cursive;
+    font-size:1rem;
+    opacity:0.8;
+}
+
+
+.chat-password {
+    margin-top:8px;
+    font-size:0.8rem;
+    font-family:"Inter",sans-serif;
+}
+
+.chat-password input {
+    padding:4px 8px;
+    border-radius:999px;
+    border:1px solid #c7b9a2;
+    font-size:0.8rem;
+    width:160px;
+    margin-right:4px;
+}
+
+.chat-password button {
+    padding:4px 10px;
+    border-radius:999px;
+    border:none;
+    background:#ffe7a3;
+    cursor:pointer;
+    font-size:0.8rem;
+}
+
+.chat-password-hint {
+    margin-top:4px;
+    font-size:0.75rem;
+    opacity:0.8;
+}
+
+.chat-password-feedback {
+    margin-top:2px;
+    font-size:0.75rem;
+}
+
+
+.chat-hidden {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+    font-family:"Caveat",cursive;
+    font-size:1.1rem;
+    margin-top:8px;
+}
+
+.chat-postit.open .chat-hidden {
+    max-height:1200px;
+}
+
+
+.compliments-area {
+    position:relative;
+    height:60vh;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.compliment {
+    position:absolute;
+    top:-10%;
+    font-family:"Caveat",cursive;
+    font-size:1.4rem;
+    opacity:0;
+    animation: complimentsFall 6s linear infinite;
+}
+
+@keyframes complimentsFall {
+    0% { transform: translateY(0); opacity:0; }
+    10% { opacity:1; }
+    90% { opacity:1; }
+    100% { transform: translateY(110vh); opacity:0; }
+}
+
+
+.about-reply {
+    margin-top: 8px;
+    padding: 12px 14px 14px;
+    background: #fffdf4;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    font-family: "Caveat", cursive;
+}
+
+.about-reply h3 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+#reply-area {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #c7b9a2;
+    padding: 8px 10px;
+    font-family: "Caveat", cursive;
+    font-size: 1.1rem;
+    resize: vertical;
+    background: #fefaf0;
+    outline: none;
+}
+
+#reply-area:focus {
+    border-color: #b48b6c;
+    box-shadow: 0 0 0 2px rgba(180,139,108,0.25);
+}
+
+.reply-note {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+
+.funfact-block {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #fffdf4;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 320px;
+    transform: rotate(-1deg);
+}
+
+#funfact-btn {
+    border: none;
+    background: #ffe7a3;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: "Caveat", cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+#funfact-text {
+    font-size: 0.9rem;
+    font-family: "Inter", sans-serif;
+    opacity: 0.9;
+}
+
+
+#intro {
+    position:fixed;
+    inset:0;
+    background:#050010;
+    color:#fef9ff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    z-index:100;
+    animation:introFadeIn 0.5s ease;
+}
+
+@keyframes introFadeIn {
+    from { opacity:0; }
+    to { opacity:1; }
+}
+
+#intro h1 {
+    font-family:"Caveat",cursive;
+    font-size:3rem;
+    margin-bottom:8px;
+}
+
+#intro p {
+    max-width:320px;
+    font-size:0.95rem;
+    opacity:0.9;
+    margin-bottom:16px;
+}
+
+#intro button {
+    padding:10px 20px;
+    border-radius:999px;
+    border:none;
+    background:#ff6ec7;
+    color:#1a0018;
+    font-family:"Caveat",cursive;
+    font-size:1.3rem;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,0,0,0.6);
+}
+
+
+#bb-easter,
+#e30-note,
+#techno-easter {
+    position: fixed;
+    padding: 8px 12px;
+    background: #fffdf4;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    font-family: "Caveat", cursive;
+    font-size: 1rem;
+    z-index: 60;
+    display: none;
+}
+
+#bb-easter {
+    bottom: 20px;
+    right: 20px;
+}
+#e30-note {
+    bottom: 80px;
+    left: 20px;
+}
+#techno-easter {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+    .page::before { left: 50px; }
+    .inner {
+        margin-left: 70px;
+        padding: 18px 20px 40px 20px;
+    }
+    .photo { width: 100%; }
+    .note { width: 100%; }
+}
+
+@media (max-width: 600px) {
+    .page::before { display: none; }
+    .inner {
+        margin-left: 0;
+        padding: 18px 16px 40px 16px;
+    }
+    .title {
+        font-size: 2.2rem;
+    }
+}
+</style>
+</head>
+<body>
+
+
+<div id="intro">
+    <h1>¡Feliz cumpleaños! Niki !</h1>
+    <p>
+        J'avais envie de te faire quelque chose d'unique et que pour toi.  
+        Clique quand tu veux hehe !
+    </p>
+    <button id="enter-btn">Ouvrir le carnet</button>
+</div>
+
+<div class="page">
+
+    
+    <div class="e30-real">
+        <img src="e30.png" alt="BMW E30">
+    </div>
+
+ 
+    <img src="gren.png" alt="Bad Bunny frog" class="sticker-grenouille">
+
+   
+    <div id="bb-easter">
+        Ptit easter egg tah bad bunny 🐰💿
+    </div>
+
+    <div id="e30-note">
+        Roadtrip en E30 un jour, ok ?
+    </div>
+
+    <div id="techno-easter">
+        ET JSUIS PROPRIETAIREEEEEEEE JFSIDFOSDI 🎧
+    </div>
+
+    
+    <div id="techno-visual">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+  
+    <div class="sticker-heart" style="top: 40px; right: 40px;"></div>
+
+    <div class="sticker-note" style="top: 140px; left: 24px;">
+        techno,  
+        bad bunny,  
+        toi.
+    </div>
+
+    <div class="sticker-doodle star" style="top: 260px; right: 35px;">★</div>
+    <div class="sticker-doodle arrow" style="top: 380px; left: 55px;">↝</div>
+
+    
+    <div class="sticker-vinyl" style="top: 80px; right: 120px;"></div>
+
+  
+    <div class="sticker-plane" style="top: 190px; right: 12px;">✈️</div>
+
+
+    <div class="sticker-tattoo" style="bottom: 90px; left: 22px;">⚡</div>
+
+    <div class="sticker-heart" style="bottom: 40px; left: 80px; transform: rotate(10deg);"></div>
+
+    <div class="inner">
+
+        <div class="header-row">
+            
+            <div class="tab-bar">
+                <button class="tab active" data-page="1">Page 1 · Mots</button>
+                <button class="tab" data-page="2">Page 2 · Souvenir & musicaaa</button>
+                <button class="tab" data-page="3">Page 3 · Nôtre ptite chronologie</button>
+                <button class="tab" data-page="4">Page 4 · La surpriiise hehe</button>
+                <button class="tab" data-page="5">Page 5 · Pluie d'éloge</button>
+                <button class="tab" data-page="6">Page 6 · Ta page à toi</button>
+            </div>
+        </div>
+
+        <div class="title">Pour toi, Nikinder, joyeux anniversaire 🥳🎉</div>
+        <div class="subtitle">
+            Un ptit carnet pour toi. Pas un truc parfait, juste un endroit où j'ai posé mes mots et nos souvenirs. T'as 19 ans maintenant… ça commence à devenir sérieux tout ça hehe et j'avais envie de marquer le coup.
+        </div>
+
+        <div class="sticker-row">
+            <div class="sticker">🐰 Bad Bunny</div>
+            <div class="sticker">🎧 Techno</div>
+            <div class="sticker">🖋 Tatouages et idées</div>
+            <div class="sticker">🎨 Art, musique, un peu tout</div>
+            <div class="sticker">✈️ Voyages à venir</div>
+        </div>
+
+        
+        <div class="page-content active" id="page-1">
+            
+            <div class="chat-postit" id="chat-postit">
+                <div class="chat-title">Un message caché pour toi</div>
+                <div class="chat-preview">(t'as besoin d'un mot de passe pour l'ouvrir)</div>
+
+                <div class="chat-password">
+                    <input id="chat-password-input" type="text" placeholder="Mot de passe">
+                    <button id="chat-password-btn">OK</button>
+                    <div class="chat-password-hint">
+                        Indice : Une ref entre nous qui date d'il y a très longtemps 🎀
+                    </div>
+                    <div class="chat-password-feedback" id="chat-password-feedback"></div>
+                </div>
+
+                <div class="chat-hidden">
+                    Si tu es en train de lire ça, c'est que tu as trouvé le mot de passe (ça m'étonne pas hehe).
+
+                    Je veux juste que tu saches un truc très simple Niki, je t'aime profondément, en tant qu'amie, , en tant que personne qui a clairement changé ma vie.
+
+                    Tu m'as fait sortir de ma zone de confort, à être moi-même, à voir les choses autrement, à m'ouvrir sur des sujets que je n'aurai jamais abordé avec rien ni personne, indirectement comme directement. Tu dis que tu me considères comme ta famille, mais sache que c'est plus que réciproque. Tu fais partie des rares personnes que j'ai vraiment peur de perdre. Mais comme dit ma madre faut éviter de penser aux choses négatives haha, mais c'est important pour moi de te le rappeller car c'est quelque chose de fort.
+
+                    Aussi Niki, je veux juste plus que tu ne te retrouves pas encore une fois face à des gens qui ne te méritent pas. Tu mérites des relations saines, des gens qui prennent soin de toi comme toi tu prends soin des autres. Et puis je sais que tu gères bien ce genre de choses donc je m'en fais pas trop, et si y'a un problème tu sais que je suis là, sans jugement, juste pour t'écouter et t'épauler.
+
+                    Je n'attends rien de toi en échange (dans le bon sens mdr), à part que tu continues à être toi, cette merveilleuse personne, qui fait rayonner tout autour d'elle, vraiment toi.
+
+                    Joyeux anniversaire Niki, je te souhaite tout le bonheur du monde, et j'espère qu'on aura plein d'autres aventures ensemble, de souvenirs, de belles conversations, qu'on continuera aussi à évoluer ensemble comme on le fait de puis casiment 4 ans maintenant ET DES GIGAS OBJECTIF DE GIGA CHAD BIENSUR !!!!
+
+                    Ton ami qui t'aime fort fort fort,
+                    Adam
+                </div>
+            </div>
+
+            <div class="notes">
+                <div class="note yellow">
+                    <div class="note-title">Ce que je voulais te dire</div>
+                    Je crois que ce que je voulais vraiment te dire, c'est que j'aime la personne que tu es, complètement, avec tout ce que certains te reprochent.
+
+                    J'aime quand tu parles fort, quand tu prends de la place, quand t'es expressive et entière. Ce que d'autres voient comme “trop”, moi je le vois comme toi. Ton énergie, ta manière d'être, ta façon de rire jusqu'à en pleurer, c'est ce qui fait que t'es toi, et c'est exactement ça que j'adore chez toi. C'est des choses que je t'ai dites mille fois, mais je me lasserai jamais de te le répéter, et j'espère que tu le croiras vraiment un jour et pas simplement un merci, mais que tu le ressente au fond de toi. Tu es une femme merveilleuse Niki.
+
+                    Avec toi, je peux être moi-même, sans filtre, sans être quelqu'un d'autre. C'est rare pour moi, et c'est pour ça que tu prends autant de place dans ma vie.
+                </div>
+
+                <div class="note blue">
+                    <div class="note-title">Nos délires</div>
+                    Avec toi, c'est littéralement des giga fous rires à chaque fois. À Malte, j'ai l'impression d'avoir jamais autant rigolé de toute ma vie mdrrr
+
+                    Les reels inta TERRIFIANTS avec l'emoji qui twerk, le banana, nos délires éclatés à 7h du sbah comme à 3h du matin, les fous rires dans les rues alors que tout le monde nous regardait, l'escape game foireux avec le moment où on manque de s'éclater la gueule sur le trotoir à quelques secondes d'intervalle avec Nolan... Et je dois en oublier plein, car j'ai une mémoire de poisson rouge haha (pour de vrai ça m'attriste vraiment quand j'oublie des choses comme ça), mais les emotions que j'ai ressenties avec toi dans ces moments-là, elles sont gravées.
+
+                    On se voit pas si souvent malheureusement, mais quand on est ensemble, c'est comme si tout le reste disparaissait. Il reste juste ton rire, nos conneries, et ce mélange entre, on est des gosses et on parle de la vie comme Platon et Aristote sur une terrasse.
+                </div>
+
+                <div class="note green">
+                    <div class="note-title">À propos de toi</div>
+                    Ce que j'aime chez toi, c'est justement ce que certains comprennent pas.
+
+                    Tu parles fort, t'es expressive, tu débordes d'énergie, tu dis ce que tu penses, t'es empathique, tu ressens tout très fort… et moi, j'admire ça. T'es remplie de bienveillance, tu hésites pas à aider les autres, même quand tu dis que tu veux “penser à toi”.
+
+                    Tu es une bonne personne, vraiment. T'hésites pas à faire passer tes proches avant ton propre intêret, comme aider t'es parents malgrès tout, et je te respecte tellement pour ça. Tu te relèves après des trucs où d'autres ne trouveraient jamais la force de se relever. Et même quand tu doutes, même quand tu réfléchis à trop de choses en même temps, moi je vois quelqu'un de rare, que peu de gens peuvent vraiment comprendre de l'extérieur. Mais c'est aussi important que tu penses à toi aussi Niki.
+                </div>
+
+                <div class="note pink">
+                    <div class="note-title">Un truc que je dis pas souvent</div>
+                    Un truc que je ne dis pas souvent comme ça c'est dûr de trouver car quand j'ai envie de te dire quelque chose je le fais, mais Niki, j'aimerai que tu saches à quel point tu es devenue un repère pour moi.
+
+                    Tu es ma moitié version amitié, mon âme soeur. Celle avec qui je peux rire comme un mongole, parler comme si on était au fond de l'univers, et me sentir à ma place. Celle qui m'a fait confiance et s'est confiée sur des choses extrêmement personnelles, et ça me touche énormément.
+
+                    Il y a des phrases que tu as dites, des moments qu'on a vécus, que j'ai encore en tête que je n'oublierai jamais. Et tu sais, j'ai vraiment envie d'en apprendre un peu plus sur toi, petit à petit. J'aimerais comprendre toujours un peu plus ta manière de voir les choses, ton univers à toi. Pas seulement ce qui se voit facilement, la tech, Bad Bunny, les tatouages, les voitures etc.. ça, on sent que tu kiffes. Mais j'ai aussi envie de découvrir les parts de toi que tu ne mets pas forcément en avant. C'est vrai qu'avec la distance, ce n'est pas toujours simple de vraiment connaître quelqu'un, et je pense que personne peut vraiment nous connaître à 100% même nous même au final, même avec les personnes qu'on voit tous les jours, on passe à côté de plein de choses. Mais voilà… j'ai envie de te connaître du moins toujours faire l'effort d'essayer, Nikinder. Tes passions, tes peurs, ce qui te fait vibrer, avec sincérité.
+                </div>
+
+                <div class="note orange">
+                    <div class="note-title">Pour la suite</div>
+                    Pour la suite, j'ai pas besoin d'un scénario parfait. J'ai juste envie que tu continues d'avancer, de rire, de pleurer de rire, de vivre des trucs qui te ressemblent, et que je puisse en voir une partie.
+
+                    J'ai envie de nouveaux voyages, de nouveaux paysages, de soirées à refaire le monde, de tatouages, de concerts, de moments simples comme ton poulet frit devant une vidéo de Doflanico avec Nolan haha, ou une terrasse avec deux chaises et deux couettes.
+
+                    J'aime trop l'idée de nos projets, parler de l'Australie, partir taffer là-bas, changer de vie, pas forcément faire la même chose mais le faire ensemble. L'idée d'une coloc ça serait tellement banger mdr, d'un beau voyage au Portugal avec ta mif, d'anecdotes qu'on racontera plus tard à nos enfants. Tant qu'on ne perd pas ce beau lien, ça me va.
+                </div>
+
+                
+                <div class="note yellow">
+                    <div class="note-title">Le Portugal</div>
+                    On parle de plus en plus du Portugal, du voyage que tu m'as proposé pour mon anniv.
+
+                    L'idée d'y aller ensemble, peut-être avec ton frère, ta mère, ma mère et même ton père qui sait haha, pour leur offrir un vrai beau voyage, ça me touche vraiment. J'aime trop imaginer ce moment-là, vous quatre, dans un autre pays, à profiter, à découvrir, à rigoler. Mais au lieu de me l'imaginer je préfère tout faire pour le réaliser ! Et surtout, j'ai trop hâte de découvrir le Portugal avec toi, de me balader dans les rues, de manger des pastéis de nata, de visiter des châteaux, de voir la mer, de faire des photos de neuilles, de danser sur de la techno encore avec toi surtout et de créer plein de souvenirs ensemble.
+
+                    Rien que d'en parler avec toi, ça me donne envie d'y être déjà hehe
+                </div>
+
+            </div>
+
+            <div class="funfact-block">
+                <button id="funfact-btn">Fun facts sur toi</button>
+                <div id="funfact-text">
+                    Clique pour ici afficher des petits fun facts sur toi.
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content" id="page-2">
+
+            <div class="photos-title">Nos photos souvenirs en mode polaroid</div>
+            <div class="photos-subtitle">  
+                Clique sur les polaroids, comme si tu lisais ce qu'il y a écrit derrière.
+            </div>
+
+            <div class="photo-wall">
+                <div class="photo interactive-polaroid"
+                     data-text="À Malte, je crois que j'ai jamais autant rigolé et kiffé de ma vie. Ce voyage restera gravé, surtout à grace à toi.">
+                    <img src="IMG_3211.JPG" alt="">
+                    <div class="photo-label">Maltaaa sur les falaises</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Te voir pleurer de rire comme ça, c'est un des trucs qui me rendent le plus heureux je crois bien.">
+                    <img src="IMG_3528.jpg" alt="">
+                    <div class="photo-label">Fou rire dans la rue, après le tournage du film</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Ces moments simples chez toi à Montpel, à marcher, manger, parler de tout et de rien… je les garde précieusement.">
+                    <img src="FullSizeRender.jpg" alt="">
+                    <div class="photo-label">Montpel</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="A la playa avec la daronne, j'adore la photo haha.">
+                    <img src="IMG_4293.jpg" alt="">
+                    <div class="photo-label">Playa</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Ce regard de dégoût ptdrrr je m'en remet toujours pas.">
+                    <img src="IMG_3839.jpg" alt="">
+                    <div class="photo-label">Le regart du dégoût</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="La pauvre niveaux photo pas à son avantage elle a pris chère ma mère durant ce voyage xd.">
+                    <img src="IMG_3860.jpg" alt="">
+                    <div class="photo-label">Pas à sont avantage</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="A ta remise des diplômes, à ton ancien lycée, un moment qui m'a marqué aussi.">
+                    <img src="IMG_8879.JPG" alt="">
+                    <div class="photo-label">Diplôme de Nikinder</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="La photo est de mauvaise qualité car j'avais que des vidéos mais ce moment où t'étais à fond dans t'es danses j'ai adoré hehe, t'étais dans ton élément haha">
+                    <img src="IMG_4637.PNG" alt="">
+                    <div class="photo-label">NIKI DO BAILA 🕺💃💃🔥🔥🔥</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="On était partit se baigner à Agde en plein mois de Mars, et nôtre pique-nique avec t'es sanduiches">
+                    <img src="IMG_9830.jpg" alt="">
+                    <div class="photo-label">Baignade en Mars</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Nôtre resto ensemble, juste ton regard et ton sourire ça fait toute la beauté de la photo">
+                    <img src="IMG_8071.JPG" alt="">
+                    <div class="photo-label">Restau avec ton beau sourire</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="T'es 18 ans, y'a 1 an déjà haha, avec ton ptit sourire j'adore">
+                    <img src="IMG_8829.JPG" alt="">
+                    <div class="photo-label">18 ans</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Un des mes meilleurs moments à Malte, voir un match avec toi, ma mère, vous ramenez dans mon univers, une de mes passions.">
+                    <img src="IMG_3561.jpg" alt="">
+                    <div class="photo-label">Malte-Pologne</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Niki sous cagoule de bourreau, et lunette de fashion avant de prendre l'avion.">
+                    <img src="IMG_4525.jpg" alt="">
+                    <div class="photo-label">Ils se mettent sur le bord les fashions là</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="J'adore ton sourire vraiment, ça me rend heureux de te voir comme ça.">
+                    <img src="IMG_3935.jpg" alt="">
+                    <div class="photo-label">Sur le bâteau</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Bon on aura pas vu la grotte, mais on a vu la mer et surtout ton beau sourire encore une fois hehe.">
+                    <img src="IMG_4053.jpg" alt="">
+                    <div class="photo-label">Blue Grotto</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Nolan et toi toujours en mode Mcgregor vs khabib haha">
+                    <img src="IMG_8819.JPG" alt="">
+                    <div class="photo-label">UFC 322 Niki-Nolan</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Elle sont pas si mal au finale les photos de mon téléphone, surtout quand c'est toi dessus hehe">
+                    <img src="FullSizeRender (1).jpg" alt="">
+                    <div class="photo-label">Photo magnifique</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Niki qui apprend à conduire, prête à drifter (tu m'apprendras d'ailleurs j'oublie pas hein), t'es premières heures de conduite.">
+                    <img src="IMG_9744.jpeg.jpg" alt="">
+                    <div class="photo-label">Tokyo drift</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Je pense que t'as une vraie connection avec les animaux.">
+                    <img src="DWMN8439.JPG" alt="">
+                    <div class="photo-label">Niki Bardot</div>
+                </div>
+
+                <div class="photo interactive-polaroid"
+                     data-text="Encore avec les nanimaux, avec Nine, j'espère que ça te donne envie d'avoir un potichat un jour hehe.">
+                    <img src="DISW6937.JPG" alt="">
+                    <div class="photo-label">Niki Bardot v2</div>
+                </div>
+            </div>
+
+            <div class="playlist-block">
+                <div class="playlist-title">La playlist pour ton anniv</div>
+                <p style="font-size:0.9rem; margin-bottom:8px;">
+                    19 morceaux choisis avec amour pour t'es 19 ans, avec des styles que tu aimes.
+                </p>
+                <iframe style="border-radius:8px" src="https://open.spotify.com/embed/playlist/1f8lN0KVlERUQtJg9bpkCy?utm_source=generator"
+                        width="100%" height="80" frameborder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+        </div>
+
+        <div class="page-content" id="page-3">
+
+            <h2 style="font-family:'Caveat',cursive; font-size:2rem; margin-bottom:8px;">Notre petite chronologie</h2>
+            <p style="font-size:0.9rem; margin-bottom:10px; max-width:600px;">
+                Quelques dates ou moments importants, juste pour les revoir alignés.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-text">
+                        Le moment où on a vraiment commencé à parler pour de vrai, pas juste vite fait, et où j'ai senti que cette amitié n'allait pas être comme les autres et que t'étais une personne spéciale même si à nôtre rencontre je le sentais déjà.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-text">
+                        Nos premières fois chez toi à Montpel/Agde, nos balades, les repas, la rencontre avec t'es parents, les fous rires, nos longues discussions, nos moments de soutiens l'un envers l'autre… C'est là que j'ai compris à quel point tu comptais énormément pour moi.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-text">
+                        Le ski, avec Nolan, Sati, toi et moi. J'ai tellement kiffé des golmons sur les pistes à refaire !! Malte. Une semaine et demie à te voir tous les jours, à rigoler, à parler, à vivre n'importe quoi et des moments profonds. Un vrai tournant pour moi, j'ai envie d'en faire tellement d'autres des voyages avec toi.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Pas de date car c'est intemporel</div>
+                    <div class="timeline-text">
+                        Le jour où tu m'as dit que tu me considérais comme ta famille. Cette phrase là, je ne l'oublierai jamais.
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Portugal</div>
+                    <div class="timeline-text">
+                        Portugal, le voyage que tu m'as proposé pour mon anniv, un de mes voyage de rêve. 
+                        l'idée d'y aller ensemble et peut-être d'emmener ton frère, ta mère, ma mère et peut-être ton père pour leur offrir un vrai beau séjour.
+                    </div>
+                </div>
+            </div>
+
+            <div class="photos-title" style="margin-top:24px;">Encore quelques souvenirs</div>
+            <div class="photos-subtitle">
+                Des photos supplémentaires, toujours en mode polaroid, clique dessus pour lire les petits mots derrière.
+            </div>
+
+            <div class="photo-wall">
+                <div class="photo interactive-polaroid"
+                     data-text="Malgrès le négatif qui entoure cette photo(on se comprend), pour moi l'essentiel c'est nous deux et ce sourire que tu as là.">
+                    <img src="IMG_1444.jpg" alt="">
+                    <div class="photo-label">Nôtre première photo ensemble</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Le Ski c'était vraiment magique, on est restés 48h, mais c'était tellement remplis de bons moments, surout partagé ça avec Nolan, sati et toi.">
+                    <img src="IMG_9480.jpg" alt="">
+                    <div class="photo-label">SKI RAAAHHHHHH</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Aller au cinéma avec toi, j'adore ça, t'es toujours à fond dans le film et ça me fait trop plaisir de partager ça avec toi.">
+                    <img src="IMG_3474.jpg" alt="">
+                    <div class="photo-label">Cinéma</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Je me souviens on y est allé 20 min t'étais déjà accros je pleure mdrrr, mais en vrai c'était sympa de découvrir ça.">
+                    <img src="IMG_4638.PNG" alt="">
+                    <div class="photo-label">Niki addict au casino</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Cette photo elle est ressortie plus d'une fois au milieu de nos conv, avec mon crane gênant mdrrr.">
+                    <img src="IMG_6713.PNG" alt="">
+                    <div class="photo-label">Maaaario</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Niki la dorade pas plus à ajouter xd">
+                    <img src="IMG_4151.jpg" alt="">
+                    <div class="photo-label">La dorade</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Je me souviens d'avoir souffert en vélo avant d'arriver à la plage, tu m'avais dit ouais ouais c'est pas loin mdrrr">
+                    <img src="IMG_9830.jpg" alt="">
+                    <div class="photo-label">A la plage Agde</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Même au décollage ça se maquille, j'adore haha">
+                    <img src="IMG_3461.jpg" alt="">
+                    <div class="photo-label">Passagère princesse</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Le sauvetage des cheuveux à 23h, avant de se lever pour prendre l'abion à 5h du sbah">
+                    <img src="IMG_3449.jpg" alt="">
+                    <div class="photo-label">Opération sauvetage</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Nolan et moi avant d'aller se casser la gueule sur les pistes">
+                    <img src="IMG_9469.jpg" alt="">
+                    <div class="photo-label">Téléphérique ski</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="On voit la joie sur ton visage xd">
+                    <img src="IMG_0074.jpg" alt="">
+                    <div class="photo-label">Le riz par terre</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Encore auciné où est partit voir Cahinsaw man, l'arc de Reze, la photo je l'adore t'es jolie, et le film était incroyable aussi">
+                    <img src="IMG_3444.jpg" alt="">
+                    <div class="photo-label">Chainsaw man</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="J'adore vraiment quand tu souris, on était là au soleil au ski entrain de kiffer le soleil car on était ko, avec sati qui faisait ses pistes noires mdrrr.">
+                    <img src="IMG_9331.jpg" alt="">
+                    <div class="photo-label">Niki sous fou rire</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Tu gobes des lilas mdrrr">
+                    <img src="IMG_0158.jpg" alt="">
+                    <div class="photo-label">Bon...</div>
+                </div>
+                <div class="photo interactive-polaroid"
+                     data-text="Comme à chaque photo, j'adore ton sourire, avec ton cierge haha">
+                    <img src="IMG_8795.JPG" alt="">
+                    <div class="photo-label">Beau sourire</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                Carnet refermé, mais pas l'histoire. ❤️
+            </div>
+        </div>
+
+        
+        <div class="page-content" id="page-4" style="animation: popIn 0.5s ease;">
+            <h2 style="font-family:'Caveat',cursive; font-size:2.2rem; margin-bottom:8px;">
+                🎁 Petite surprise hehe…
+            </h2>
+
+            <p style="font-size:1rem; margin-bottom:12px; max-width:600px;">
+                Tu le savais déjà, mais je voulais quand même te faire un beau petit truc, voir Bad Bunny, ton artiste préféré, en concert, quand j'ai vu l'annonce j'ai même pas hésité une seconde. T'offrir un moment comme ça c'est important pour moi.
+            </p>
+
+            <div id="countdown-box" style="margin:10px 0 18px; padding:8px 10px; background:#fffdf4; border-radius:8px; display:inline-block; font-family:'Caveat',cursive; font-size:1.2rem;">
+                <span>Il reste </span><span id="countdown">...</span><span> avant le concert.</span>
+            </div>
+
+            <p style="font-size:1rem; margin-bottom:14px; max-width:600px;">
+                Du coup, autant te le dire clairement, on va voir Bad Bunny le 1er Juillet 2026 hehe. 🎤🐰, donc prépare l'arrêt maladie pour ce jour mdrrr
+            </p>
+
+            
+            <div class="bb-player">
+                <button id="bb-play">Play</button>
+                <div>Volume</div>
+                <input type="range" id="bb-volume" min="0" max="1" step="0.01" value="0.3">
+            </div>
+
+            <button id="download-bad-bunny" class="surprise-btn" style="margin-top:16px;">
+                🎟️ Télécharger les billets Bad Bunny
+            </button>
+
+            <p style="font-size:0.85rem; margin-top:10px; max-width:480px;">
+                (Tu peux garder ce fichier comme souvenir, ou juste comme preuve que oui,
+                on va vraiment voir Bad Bunny ensemble.)
+            </p>
+        </div>
+
+        <div class="page-content" id="page-5">
+            <h2 style="font-family:'Caveat',cursive; font-size:2.1rem; margin-bottom:6px;">
+                Des ptits mots que je pense de toi
+            </h2>
+            <p style="font-size:0.9rem; margin-bottom:10px; max-width:600px;">
+                Au cas où tu l'oublies un jour, voilà quelques mots qui te représentent bien hehe.
+            </p>
+
+            <div class="compliments-area">
+                <div class="compliment" style="left:10%; animation-delay:0s;">drôle</div>
+                <div class="compliment" style="left:25%; animation-delay:1s;">belle dans tout t'es aspect</div>
+                <div class="compliment" style="left:40%; animation-delay:2s;">mirifique</div>
+                <div class="compliment" style="left:55%; animation-delay:0.5s;">trop forte</div>
+                <div class="compliment" style="left:70%; animation-delay:1.5s;">ta présence apaise comme la mer</div>
+                <div class="compliment" style="left:85%; animation-delay:2.5s;">différente (dans le bon sens)</div>
+                <div class="compliment" style="left:18%; animation-delay:3s;">sensible</div>
+                <div class="compliment" style="left:62%; animation-delay:3.5s;">une onde de douceur</div>
+            </div>
+        </div>
+
+        
+        <div class="page-content" id="page-6">
+            <h2 style="font-family:'Caveat',cursive; font-size:2.1rem; margin-bottom:6px;">
+                Ta page à toi
+            </h2>
+            <p style="font-size:0.9rem; margin-bottom:10px; max-width:600px;">
+                Ici, c'est ta page. Tu peux écrire ce que tu veux que ce soit une réponse, un pavé, un truc que tu veux garder pour toi,
+                quelque chose que tu n'oses pas dire à voix haute, un souvenir, un mot, une liste, un rien. C'est ta page !
+            </p>
+
+            <div class="about-reply">
+                <h3>Écris ce que tu veux ici</h3>
+                <p style="font-size:0.85rem; margin-bottom:6px;">
+                    Ce que tu écris reste sur ton téléphone/ton ordi.  
+                    Tu peux tout effacer, tout réécrire, ou ne rien mettre du tout, c'est comme tu veux.
+                </p>
+                <textarea id="reply-area" placeholder="Tu peux écrire autant que tu veux ici..."
+                          rows="8" maxlength="5000"></textarea>
+                <div class="reply-note">
+                    (Techniquement limité à environ 5000 caractères ici, mais tu peux large écrire un roman, si t'en a envie.  
+                    Et tout reste enregistré uniquement sur ton appareil.)
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="polaroid-modal">
+    <div class="modal-inner">
+        <img id="modal-img" src="" alt="">
+        <div class="back-text" id="modal-text"></div>
+        <p style="margin-top:8px; font-size:0.8rem;">(Clique n'importe où pour fermer)</p>
+    </div>
+</div>
+
+<audio id="bb-audio" src="bad_bunny.mp3"></audio>
+<audio id="techno-audio" src="fonctionnaire.mp3"></audio>
+
+<script>
+const intro = document.getElementById('intro');
+const enterBtn = document.getElementById('enter-btn');
+const page = document.querySelector('.page');
+
+enterBtn.addEventListener('click', () => {
+    intro.style.display = 'none';
+    page.style.display = 'block';
+});
+
+const tabs = document.querySelectorAll('.tab');
+const pages = document.querySelectorAll('.page-content');
+const audioBB = document.getElementById('bb-audio');
+const technoAudio = document.getElementById('techno-audio');
+
+if (audioBB) {
+    audioBB.volume = 0.3;
+}
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-page');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        pages.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const activePage = document.getElementById('page-' + target);
+        activePage.classList.add('active');
+
+        if (target !== '4' && audioBB && !audioBB.paused) {
+            audioBB.pause();
+            const btn = document.getElementById('bb-play');
+            if (btn) btn.textContent = 'Play';
+        }
+    });
+});
+
+const CHAT_SECRET = "suce kekette";
+const chatPostit = document.getElementById('chat-postit');
+const chatPwInput = document.getElementById('chat-password-input');
+const chatPwBtn = document.getElementById('chat-password-btn');
+const chatPwFeedback = document.getElementById('chat-password-feedback');
+
+function checkChatPassword() {
+    const val = (chatPwInput.value || "").trim().toLowerCase();
+    if (val === CHAT_SECRET.toLowerCase()) {
+        chatPostit.classList.add('open');
+        chatPwFeedback.style.color = "green";
+        chatPwFeedback.textContent = "C’est bon, tu peux lire ton message.";
+        chatPwInput.disabled = true;
+        chatPwBtn.disabled = true;
+    } else {
+        chatPwFeedback.style.color = "red";
+        chatPwFeedback.textContent = "Pas le bon mot… mais tu connais la ref 😉";
+    }
+}
+
+if (chatPwBtn && chatPwInput) {
+    chatPwBtn.addEventListener('click', checkChatPassword);
+    chatPwInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            checkChatPassword();
+        }
+    });
+}
+
+const polaroids = document.querySelectorAll('.interactive-polaroid');
+const polaroidModal = document.getElementById('polaroid-modal');
+const modalImg = document.getElementById('modal-img');
+const modalText = document.getElementById('modal-text');
+
+polaroids.forEach(poly => {
+    poly.addEventListener('click', () => {
+        const img = poly.querySelector('img');
+        modalImg.src = img.src;
+        modalText.textContent = poly.dataset.text || "";
+        polaroidModal.style.display = 'flex';
+    });
+});
+
+if (polaroidModal) {
+    polaroidModal.addEventListener('click', () => {
+        polaroidModal.style.display = 'none';
+    });
+}
+
+const btn = document.getElementById('download-bad-bunny');
+
+function createConfettiPiece() {
+    const colors = ['#ff9aa9','#ffcc67','#7f92ff','#d6ffd1','#ffd6f2'];
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+    confetti.style.animation = 'confetti-fall ' + (2 + Math.random()*1.5) + 's linear forwards';
+    confetti.style.opacity = 1;
+    document.body.appendChild(confetti);
+    setTimeout(() => {
+        confetti.remove();
+    }, 3500);
+}
+
+if (btn) {
+    btn.addEventListener('click', () => {
+        for (let i = 0; i < 80; i++) {
+            setTimeout(createConfettiPiece, i * 15);
+        }
+        const link = document.createElement('a');
+        link.href = 'bad_bunny_tickets.pdf';
+        link.download = 'bad_bunny_tickets.pdf';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    });
+}
+
+const replyArea = document.getElementById('reply-area');
+const REPLY_KEY = 'reply-from-her';
+
+if (replyArea) {
+    const saved = localStorage.getItem(REPLY_KEY);
+    if (saved) {
+        replyArea.value = saved;
+    }
+
+    replyArea.addEventListener('input', () => {
+        localStorage.setItem(REPLY_KEY, replyArea.value);
+    });
+}
+
+const funFacts = [
+    "J'adore ton rire où tu roucoule rururururu haha",
+    "T'essaye de communiquer quand tu dors",
+    "Tu ne te rends pas compte à quel point ta présence peut apaiser",
+    "Même quand tu dis que t'as l'impression d'avoir échoué à certaines choses, pour moi t'es toujours une gagnante car t'as essayé",
+    "L'amande, je sais que t'aimes pas ça, et à chaque fois qu'on se voit y'a toujours une amande quelque part xd entre le tiramisu et mon savon mdrrr",
+    "Un truc que tu dis tout le temps que j'ai remarqué c'est 'MAIS MEC'",
+    "Joyeux Anniversaire Niki, déjà hâte de fêter t'es 20 ans l'année prochaine hehe",
+    "Tu m'impressionnes par ta capacité à toujours vouloir t'améliorer et apprendre de nouvelles choses (les voitures, la culture, la culture et j'en passe)",
+];
+
+const funBtn = document.getElementById('funfact-btn');
+const funText = document.getElementById('funfact-text');
+
+function pickFunFact() {
+    const index = Math.floor(Math.random() * funFacts.length);
+    funText.textContent = funFacts[index];
+}
+
+if (funBtn && funText) {
+    funBtn.addEventListener('click', pickFunFact);
+}
+
+const CONCERT_DATE = new Date("2026-07-01T20:00:00");
+const countdownSpan = document.getElementById('countdown');
+
+function updateCountdown() {
+    if (!countdownSpan || !CONCERT_DATE) return;
+    const now = new Date();
+    const diff = CONCERT_DATE - now;
+
+    if (diff <= 0) {
+        countdownSpan.textContent = "plus rien, c’est maintenant.";
+        return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / (3600 * 24));
+    const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+    let text = "";
+    if (days > 0) text += days + " jour" + (days > 1 ? "s " : " ");
+    text += hours + "h ";
+    text += minutes + "m";
+
+    countdownSpan.textContent = text;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 60000); 
+
+const bbEaster = document.getElementById('bb-easter');
+let bbClickCount = 0;
+let bbClickTimer = null;
+
+const bbSticker = Array.from(document.querySelectorAll('.sticker'))
+    .find(s => s.textContent.includes('Bad Bunny'));
+
+function triggerBbEaster() {
+    if (!bbEaster) return;
+    bbEaster.style.display = 'block';
+    setTimeout(() => {
+        bbEaster.style.display = 'none';
+    }, 4000);
+
+    if (typeof createConfettiPiece === 'function') {
+        for (let i = 0; i < 40; i++) {
+            setTimeout(createConfettiPiece, i * 20);
+        }
+    }
+}
+
+if (bbSticker) {
+    bbSticker.addEventListener('click', () => {
+        bbClickCount++;
+        if (bbClickCount === 1) {
+            bbClickTimer = setTimeout(() => {
+                bbClickCount = 0;
+            }, 700);
+        }
+        if (bbClickCount >= 3) {
+            clearTimeout(bbClickTimer);
+            bbClickCount = 0;
+            triggerBbEaster();
+        }
+    });
+}
+
+const e30Wrapper = document.querySelector('.e30-real');
+const e30Note = document.getElementById('e30-note');
+
+if (e30Wrapper && e30Note) {
+    e30Wrapper.addEventListener('dblclick', () => {
+        e30Note.style.display = 'block';
+        setTimeout(() => {
+            e30Note.style.display = 'none';
+        }, 4000);
+    });
+}
+
+const technoEaster = document.getElementById('techno-easter');
+const technoVisual = document.getElementById('techno-visual');
+let bufferKeys = "";
+
+function triggerTechno() {
+    if (!technoEaster) return;
+    technoEaster.style.display = 'block';
+
+    const oldBg = document.body.style.background;
+    document.body.style.background = "radial-gradient(circle at top, #3b0c59, #050010)";
+    document.body.classList.add('rave-mode');
+
+    if (technoVisual) {
+        technoVisual.style.display = 'flex';
+    }
+
+    if (technoAudio) {
+        try {
+            technoAudio.currentTime = 0;
+            technoAudio.play();
+        } catch(e) {}
+    }
+
+    setTimeout(() => {
+        technoEaster.style.display = 'none';
+        document.body.style.background = oldBg;
+        document.body.classList.remove('rave-mode');
+        if (technoAudio) {
+            technoAudio.pause();
+            technoAudio.currentTime = 0;
+        }
+        if (technoVisual) {
+            technoVisual.style.display = 'none';
+        }
+    }, 24000);
+}
+
+window.addEventListener('keydown', (e) => {
+    const key = (e.key || "").toUpperCase();
+    if (key.length === 1 && key.match(/[A-Z]/)) {
+        bufferKeys += key;
+        if (bufferKeys.length > 10) {
+            bufferKeys = bufferKeys.slice(-10);
+        }
+        if (bufferKeys.includes("TECHNO")) {
+            bufferKeys = "";
+            triggerTechno();
+        }
+    }
+});
+
+function initBBPlayer() {
+    const playBtn = document.getElementById('bb-play');
+    const volumeSlider = document.getElementById('bb-volume');
+    if (!audioBB || !playBtn || !volumeSlider) return;
+
+    audioBB.volume = parseFloat(volumeSlider.value);
+
+    playBtn.addEventListener('click', () => {
+        if (audioBB.paused) {
+            audioBB.play().then(() => {
+                playBtn.textContent = 'Pause';
+            }).catch(() => {});
+        } else {
+            audioBB.pause();
+            playBtn.textContent = 'Play';
+        }
+    });
+
+    volumeSlider.addEventListener('input', () => {
+        audioBB.volume = parseFloat(volumeSlider.value);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initBBPlayer);
+</script>
+
+</body>
+</html>
